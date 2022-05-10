@@ -1,22 +1,37 @@
 package SimpleRecommendationSystem.recommendation.model;
 
-import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Array;
 
 public class Recipe {
-    @Id
-
-    private Long id;
+    private int id;
     private String cuisine;
-    private List<String> ingredients = new ArrayList<String>();
-    private List<String> instructions = new ArrayList<String>();
+
+    private String[] ingredients;
 
 
-    public Recipe(Long id, String cuisine, List<String> ingredients, List<String> instructions) {
+    public Recipe(int id, String cuisine, String[] ingredients) {
         this.id = id;
         this.cuisine = cuisine;
         this.ingredients = ingredients;
-        this.instructions = instructions;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getCuisine() {
+        return cuisine;
+    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "id=" + id +
+                ", cuisine='" + cuisine + '\'' +
+                '}';
+    }
+
+    public String[] getIngredients() {
+        return ingredients;
     }
 }

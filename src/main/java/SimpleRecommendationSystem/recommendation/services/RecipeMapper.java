@@ -17,4 +17,5 @@ public class RecipeMapper implements RowMapper<Recipe> {
 
         return recipe;
     }
+
 }

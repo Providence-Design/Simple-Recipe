@@ -1,7 +1,6 @@
 package SimpleRecommendationSystem.recommendation.services;
 
 import SimpleRecommendationSystem.recommendation.model.Recipe;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +20,11 @@ public class RecipeRepository {
         List<Recipe> recipes = jdbcTemplate.query("SELECT * FROM recipe", new RecipeMapper());
         System.out.println(recipes);
         return recipes;
+    }
+
+    public List<Recipe> getByName(String recipe) {
+        List<Recipe> recipeName = jdbcTemplate.query("SELECT * FROM recipe WHERE cuisine.recipe = ?", new RecipeMapper());
+        System.out.println(recipeName);
+        return recipeName;
     }
 }

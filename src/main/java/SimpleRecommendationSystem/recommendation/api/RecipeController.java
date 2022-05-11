@@ -16,12 +16,28 @@ public class RecipeController {
         this.recipeRepository = recipeRepository;
     }
 
-    @GetMapping()
-    public List<Recipe> getRecipe(@RequestParam String recipe) {
+//    @GetMapping("/name")
+//    public List<Recipe> getByName(@RequestParam String recipe) {
+//        System.out.println("my recipe name:" + recipe);
+//        // "http://localhost:8080/recipe?recipe=jo llof"
+//        // TODO: // recipeRepository.getByName(recipe);
+//        return recipeRepository.getByName("Jollof");
+//    }
+    @GetMapping("/")
+    public String getByName(@RequestParam String recipe) {
         System.out.println("my recipe name:" + recipe);
+        // "http://localhost:8080/recipe?recipe=jo llof"
+        // TODO: // recipeRepository.getByName(recipe);
+        return String.valueOf(recipeRepository.getByName("Jollof"));
+    }
+
+    @GetMapping()
+    public List<Recipe> getRecipe() {
+        System.out.println("my recipe name:");
         // "http://localhost:8080/recipe?recipe=jo llof"
         // TODO: // recipeRepository.getByName(recipe);
         return recipeRepository.getRecipes();
     }
+
 
 }

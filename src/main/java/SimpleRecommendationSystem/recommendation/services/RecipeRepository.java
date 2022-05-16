@@ -23,8 +23,9 @@ public class RecipeRepository {
     }
 
     public List<Recipe> getByName(String recipe) {
-        List<Recipe> recipeName = jdbcTemplate.query("SELECT * FROM recipe WHERE cuisine.recipe = ?", new RecipeMapper());
+        List<Recipe> recipeName = jdbcTemplate.query("SELECT * FROM recipe WHERE cuisine = ? ", new RecipeMapper(), new Object[]{recipe});
         System.out.println(recipeName);
         return recipeName;
     }
+
 }

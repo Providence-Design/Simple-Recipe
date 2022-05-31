@@ -11,8 +11,8 @@ public class RecipeMapper implements RowMapper<Recipe> {
     public Recipe mapRow(ResultSet rs, int rowNum) throws SQLException {
         Recipe recipe = new Recipe(
                 rs.getInt("id"),
-                rs.getString("cuisine"),
-                (String[]) rs.getArray("ingredients").getArray()
+                rs.getString("cuisine"), null
+
         );
 
         return recipe;

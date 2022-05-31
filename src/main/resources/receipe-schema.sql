@@ -13,6 +13,45 @@ CREATE TABLE ingredient (
 	name VARCHAR ( 50 ) UNIQUE NOT NULL,
 );
 
+CREATE TABLE instruction (
+    id INT PRIMARY KEY,
+	name VARCHAR ( 50 ) UNIQUE NOT NULL,
+);
+
+CREATE TABLE recipe_ingredient(
+   recipe_id INT,
+   ingredient_id INT,
+
+   PRIMARY KEY(recipe_id, ingredient_id),
+   CONSTRAINT fk_recipe
+      FOREIGN KEY(recipe_id)
+	  REFERENCES recipe(id),
+
+   CONSTRAINT fk_ingredient
+       FOREIGN KEY(ingredient_id)
+       REFERENCES recipe(id),
+
+);
+
+
+CREATE TABLE recipe_instruction(
+   recipe_id INT,
+   instruction_id INT,
+
+   PRIMARY KEY(recipe_id, instruction_id),
+   CONSTRAINT fk_recipe
+      FOREIGN KEY(recipe_id)
+	  REFERENCES recipe(id),
+
+   CONSTRAINT fk_instruction
+       FOREIGN KEY(instruction_id)
+       REFERENCES recipe(id),
+
+);
+--command to drop a column
+ALTER TABLE recipe DROP COLUMN ingredients;
+
+
 -- insert into ingredient table
 INSERT INTO ingredient(id, name) VALUES (1, "rice")
 INSERT INTO ingredient(id, name) VALUES (2, "oil")

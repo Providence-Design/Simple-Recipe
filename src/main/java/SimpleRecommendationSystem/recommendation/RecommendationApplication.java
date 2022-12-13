@@ -17,13 +17,6 @@ public class RecommendationApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		String sql = "INSERT INTO recipe (id, Cuisine, Ingredients, Instructions) VALUES(4,'Hello', '{h, welcome, home}', '{there}');";
-		int rows = jdbcTemplate.update(sql);
-		if(rows < 0){
-			System.out.println("No row has been inserted");
-		}else{
-			System.out.println("Data inserted successfully");
-		}
 
 	}
 }
